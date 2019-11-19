@@ -1171,6 +1171,10 @@ img {
 }
 .video .brand {
   width: 4.2rem;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  opacity: 0.8;
 }
 .video-frame {
   position: absolute;
