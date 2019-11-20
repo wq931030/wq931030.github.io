@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+    <meta name="description" content="这是一段描述">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    从零开始基于Hexo+Github搭建个人博客 |
+    
+    Never Wong</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-blog1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从零开始基于Hexo+Github搭建个人博客
+    </h1>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/11/20/blog1/" class="article-date">
+  <time datetime="2019-11-20T08:21:50.000Z" itemprop="datePublished">2019-11-20</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+  <div class="article-gallery">
+    <div class="article-gallery-photos">
+      
+        
+          <img src="https://github.com/zhwangart/hexo-theme-ocean/raw/master/screenshots/hexo-theme-ocean.jpg" itemprop="image">
+        
+      
+    </div>
+  </div>
+
+
+      
+        <p>身为一名程序媛，平时遇到问题就会各种google大法，然后从别人的博客里面寻找答案，小白心里一直希望可以拥有一个属于自己博客，所有这次也是断断续续的花了一天两的时间，折腾出了人生第一个博客🎉🎉🎉🎉🎉，期间也是踩了大大小小的坑😭。话不多说，接下来，小白老师手把手教你怎么搭建一个炫酷（装逼）的博客！</p>
+<a id="more"></a>
+<hr>
+<h3 id="Step1-安装Hexo"><a href="#Step1-安装Hexo" class="headerlink" title="Step1 安装Hexo"></a>Step1 安装Hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Step2-GitHub创建个人博客仓库"><a href="#Step2-GitHub创建个人博客仓库" class="headerlink" title="Step2 GitHub创建个人博客仓库"></a>Step2 GitHub创建个人博客仓库</h3><ul>
+<li>登陆GitHub，如果没有账号的话，就点<a href="https://github.com/" target="_blank" rel="noopener">这里</a>注册git账号，然后点击右上角+，选择New repository</li>
+<li>填写仓库名，<strong>注意：</strong>这里仓库名必须是<strong>你的github账号.github.io</strong>这种格式，举个例子，看下图小白的配置👇<br><img src="https://raw.githubusercontent.com/wq931030/albums/master/2019/20191120165241.png" alt="s"></li>
+<li><a href="https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank" rel="noopener">配置SSH Key</a>, 已经配过的可以忽略跳过</li>
+</ul>
+<hr>
+<h3 id="Step3-初始化Blog项目"><a href="#Step3-初始化Blog项目" class="headerlink" title="Step3 初始化Blog项目"></a>Step3 初始化Blog项目</h3><ul>
+<li>本地选择一个文件夹，用来存放blog项目，然后依次运行下面的脚本👇👇👇<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure></li>
+<li>确保git部署<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></li>
+<li>生成文章页面，打开本地浏览<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>tips: 以后每次文章更新之后，都需要执行hexo g重新生成页面</strong></p>
+<p>接下来，浏览器输入：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000 </a>, 就可以看到你的博客啦🎉🎉🎉～</p>
+<p><img src="https://raw.githubusercontent.com/wq931030/albums/master/2019/20191120171641.png" alt="s"><br>是不是觉得很丑，一点也不能让你装逼让你飞，别急<br>接下来我们一步步来完善博客的功能</p>
+<hr>
+<h4 id="变更主题"><a href="#变更主题" class="headerlink" title="变更主题"></a>变更主题</h4><p><a href="https://hexo.io/zh-cn/index.html" target="_blank" rel="noopener">Hexo</a>身为一个热门的博客框架，自然少不了一堆好看的主题。作为一个颜控，就算是博客，也需要高颜值。你可以在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题库</a>里面选择一个自己中意的样式下载安装，这里小白选择的是<a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Ocean</a>（太好看啦，为数学家疯狂打☎️☎️☎️☎️☎️）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/zhwangart/hexo-theme-ocean.git themes/ocean</span><br></pre></td></tr></table></figure>
+<p>然后打开站点的_config.yml(博客配置文档), 将<strong>theme</strong>设置为<strong>ocean</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<p>清除缓存，重新构建之后，你的博客样式就变啦，瞬间屌丝逆袭有木有🎉🎉🎉🎉🎉🎉</p>
+<p><img src="https://raw.githubusercontent.com/wq931030/albums/master/2019/20191120173120.png" alt="d"></p>
+<h4 id="添加评论功能"><a href="#添加评论功能" class="headerlink" title="添加评论功能"></a>添加评论功能</h4><p>ocean默认是关闭评论功能的，我们需要以下步骤来实现该功能</p>
+<ul>
+<li>github 申请oauth apps<br>个人中心点击settings/Developer settings<br><img src="https://github.com/zhwangart/gitalk/raw/master/source/Register-OAuth-application.png" alt="s"><br>说明：<ul>
+<li>Application name: 没有限制的 APP 名称，比如：Hexo-application</li>
+<li>Homepage URL: 网站的主页，我理解就是根目录，比如 <a href="https://wq931030.github.io">https://wq931030.github.io</a></li>
+<li>Application description: 描述，非必填</li>
+<li>Authorization callback URL: 回调 url 我理解就是网站的域名，比如 <a href="https://wq931030.github.io">https://wq931030.github.io</a><br>申请成功之后，就看到有了 Client ID 与 Client Secret 的一个页面，页面下边就是申请刚填写的的信息，均可以再次编辑！ 只有 Client ID 与 Client Secret 是在配置 Hexo 的时候需要用。<br><img src="https://raw.githubusercontent.com/wq931030/albums/master/2019/20191120193757.png" alt="s"></li>
+</ul>
+</li>
+<li>修改主题下的_config.yml文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Gitalk</span><br><span class="line">gitalk:</span><br><span class="line">  enable: true # true</span><br><span class="line">  clientID: # GitHub Application Client ID</span><br><span class="line">  clientSecret: # Client Secret</span><br><span class="line">  repo: wq931030.github.io # Repository name</span><br><span class="line">  owner: wq931030 # GitHub ID</span><br><span class="line">  admin: wq931030 # GitHub ID</span><br></pre></td></tr></table></figure>
+接下来就可以愉快的对博文发表评论啦🎉🎉🎉🎉🎉🎉</li>
+</ul>
+<hr>
+<h3 id="Step4-Blog关联GitHub"><a href="#Step4-Blog关联GitHub" class="headerlink" title="Step4 Blog关联GitHub"></a>Step4 Blog关联GitHub</h3><p>现在，你的博客可以在本地浏览了，接下来我们就来让它可以通过github的线上地址进行访问<br>还是打开站点的_config.yml，修改以下配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:wq931030/wq931030.github.io.git #这里就是step2创建的仓库地址</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>然后安装git部署依赖,这样就可以把代码部署到github上去啦～</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>接下来执行以下脚本,  完成部署</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d #部署</span><br></pre></td></tr></table></figure>
+<p>铛铛铛铛，接下来，就可以用<a href="http://wq931030.github.io">http://wq931030.goithub.io</a>来访问博客啦<br>是不是很激动，很幸福，<br><strong>但是</strong><br>身为一个有追求的人，当然想让博客能有自己的域名<br>那么就接着折腾吧</p>
+<hr>
+<h3 id="Step4-配置阿里云域名"><a href="#Step4-配置阿里云域名" class="headerlink" title="Step4 配置阿里云域名"></a>Step4 配置阿里云域名</h3><p>这里小白选用的是<a href="https://wanwang.aliyun.com/" target="_blank" rel="noopener">阿里云</a>的域名，小伙伴们可以根据自己的情况来定哦</p>
+<ul>
+<li>注册完自己的域名之后，接下来需要设置域名解析<br>1、 登录<a href="https://dns.console.aliyun.com/?spm=a2c4g.11186623.2.12.d00459cbLH4MmF#/dns/domainList" target="_blank" rel="noopener">云解析DNS控制台</a><br>2、 添加域名<br>3、 在域名解析页面，点击域名，进入解析设置页面<br>4、 在项目里，ping你自己的yourname.github.io获取到ip地址：<br>  <img src="https://raw.githubusercontent.com/wq931030/albums/master/2019/20191120185908.png" alt="s"><br>5、 添加两条记录<br>  <img src="https://raw.githubusercontent.com/wq931030/albums/master/2019/20191120185030.png" alt="s"></li>
+<li>本地blog项目新建一个CNAME文件（没有任何后缀）,然后在里面写上你的个人域名</li>
+<li>GitHub项目添加域名<br>进入项目仓库，点击settings，往下拉，在Custom domain这一部分填上你的域名<br><img src="https://raw.githubusercontent.com/wq931030/albums/master/2019/20191120185625.png" alt="s"></li>
+</ul>
+<p>接下来，等待一段时间<br>然后<br>你就可以用域名打开你的博客啦🎉🎉🎉🎉🎉🎉～～～～～</p>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wq931030.github.io/2019/11/20/blog1/" data-id="ck370rt3n0000k1m98se9cmmk"
+         class="article-share-link">分享</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2019/11/17/hello-world/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">Hello World</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'a1f9a5010db180254cab',
+      clientSecret: 'ac9ed4a749485132958b79e6bef3795a12e52bef',
+      repo: 'wq931030.github.io',
+      owner: 'wq931030',
+      admin: ['wq931030'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: false,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
+
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2019 Never Wong</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="Never Wong"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">首页</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">归档</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">相册</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/categories">分类</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">关于</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+  <script src="/js/search.js"></script>
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>
