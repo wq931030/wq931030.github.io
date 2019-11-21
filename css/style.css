@@ -2349,6 +2349,9 @@ pre .javascript .function {
   content: '\f18c';
 }
 .navbar .nav.nav-main .nav-item:nth-child(5) .nav-item-link::before {
+  content: '\f153';
+}
+.navbar .nav.nav-main .nav-item:nth-child(6) .nav-item-link::before {
   content: '\f174';
 }
 .navbar-bottom {
