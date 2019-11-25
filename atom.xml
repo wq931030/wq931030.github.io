@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wq931030.github.io/"/>
-  <updated>2019-11-21T14:59:19.685Z</updated>
+  <updated>2019-11-22T01:54:11.801Z</updated>
   <id>https://wq931030.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图片居中神器：object-fit</title>
+    <link href="https://wq931030.github.io/2019/11/22/css3-object-fit/"/>
+    <id>https://wq931030.github.io/2019/11/22/css3-object-fit/</id>
+    <published>2019-11-22T01:52:56.000Z</published>
+    <updated>2019-11-22T01:54:11.801Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Css3" scheme="https://wq931030.github.io/categories/Css3/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>两数之和</title>

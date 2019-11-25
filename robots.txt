@@ -1,12 +1,13 @@
 User-agent: *
 Allow: /
-Allow: /home/
 Allow: /archives/
 Allow: /gallery/
 Allow: /about/
+Allow: /categories
+Allow: /tags
 Disallow: /images/
 Disallow: /css/
 Disallow: /js/
 Disallow: /fancybox/
-Sitemap: https://zhwangart.github.io/sitemap.xml
-Sitemap: https://zhwangart.github.io/baidusitemap.xml
+Sitemap: https://neverwong.top/sitemap.xml
+Sitemap: https://neverwong.top/baidusitemap.xml
