@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>leecode02</title>
+    <url>/2019/11/26/leecode02/</url>
+    <content><![CDATA[<blockquote>
+<p>题目描述<br>小A 和 小B 在玩猜数字。小B 每次从 1, 2, 3 中随机选择一个，小A 每次也从 1, 2, 3 中选择一个猜。他们一共进行三次这个游戏，请返回 小A 猜对了几次？</p>
+</blockquote>
+<a id="more"></a>
+<p><strong>输入的guess数组为 小A 每次的猜测，answer数组为 小B 每次的选择。guess和answer的长度都等于3。</strong></p>
+<blockquote>
+<p>示例1</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：guess = [1,2,3], answer = [1,2,3]</span><br><span class="line">输出：3</span><br><span class="line">解释：小A 每次都猜对了。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>示例2</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：guess = [2,2,3], answer = [3,2,1]</span><br><span class="line">输出：1</span><br><span class="line">解释：小A 只猜对了第二次。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>限制</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">guess的长度 = 3</span><br><span class="line">answer的长度 = 3</span><br><span class="line">guess的元素取值为 &#123;1, 2, 3&#125; 之一。</span><br><span class="line">answer的元素取值为 &#123;1, 2, 3&#125; 之一。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>小白的解题思路：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">只要for循环就可以实现了</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>题解</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number[]&#125; guess</span><br><span class="line"> * @param &#123;number[]&#125; answer</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var game = function(guess = [], answer = []) &#123;</span><br><span class="line">  return guess.reduce((count, item, index) =&gt; &#123;</span><br><span class="line">    if (item === answer[index]) count++</span><br><span class="line">    return count</span><br><span class="line">  &#125;, 0)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>LeeCode系列</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>图片居中神器：object-fit</title>
     <url>/2019/11/22/css3-object-fit/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>最近小白在看<a href="https://youzan.github.io/vant" target="_blank" rel="noopener">Vant</a>的文档，它里面有个Image图片组件，可以实现多种填充模式（类似于background），于是一时好奇，查看了源码，结果发现vant是使用了一个Object-fit的属性❓❓❓一脸蒙蔽之后，立马google终于知道了Object-fit是个啥东东。</p>
+]]></content>
       <categories>
         <category>Css3</category>
       </categories>
