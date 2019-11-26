@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wq931030.github.io/"/>
-  <updated>2019-11-26T09:02:04.235Z</updated>
+  <updated>2019-11-26T11:09:28.223Z</updated>
   <id>https://wq931030.github.io/</id>
   
   <author>
@@ -17,17 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>leecode02</title>
+    <title>猜数字</title>
     <link href="https://wq931030.github.io/2019/11/26/leecode02/"/>
     <id>https://wq931030.github.io/2019/11/26/leecode02/</id>
     <published>2019-11-26T08:36:33.000Z</published>
-    <updated>2019-11-26T09:02:04.235Z</updated>
+    <updated>2019-11-26T11:09:28.223Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;题目描述&lt;br&gt;小A 和 小B 在玩猜数字。小B 每次从 1, 2, 3 中随机选择一个，小A 每次也从 1, 2, 3 中选择一个猜。他们一共进行三次这个游戏，请返回 小A 猜对了几次？&lt;/p&gt;
+&lt;p&gt;题目描述&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;小A 和 小B 在玩猜数字。小B 每次从 1, 2, 3 中随机选择一个，小A 每次也从 1, 2, 3 中选择一个猜。他们一共进行三次这个游戏，请返回 小A 猜对了几次？&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
