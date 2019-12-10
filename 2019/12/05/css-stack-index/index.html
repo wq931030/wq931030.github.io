@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+    <meta name="description" content="这是一段描述">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    css世界的层叠规则 |
+    
+    Never Wong</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+<link rel="alternate" href="/atom.xml" title="Never Wong" type="application/atom+xml">
+</head>
+
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-css-stack-index" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      css世界的层叠规则
+    </h1>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/12/05/css-stack-index/" class="article-date">
+  <time datetime="2019-12-05T11:58:52.000Z" itemprop="datePublished">2019-12-05</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>身为一个前端er，css一直是我们最为基本的技能，而css的中文翻译就是层叠样式表。那为什么css世界的规则是基于‘层叠上下文’？我们又该怎么理解元素的层叠顺序？对于z-index的负值又该怎么理解？接下来，我们就基于一张图来好好谈谈css的层叠规则。<br>废话不对说，先祭出图👇👇👇👇👇👇👇<br><img src="https://raw.githubusercontent.com/wq931030/albums/master/2019/index.png" alt="图一"></p>
+<a id="more"></a>
+<h2 id="理解css的层叠上下文和层叠水平"><a href="#理解css的层叠上下文和层叠水平" class="headerlink" title="理解css的层叠上下文和层叠水平"></a>理解css的层叠上下文和层叠水平</h2><hr>
+<p>很多人对于css的层叠，第一反应想到的就是z-index属性。在实际项目中，往往我们都是通过对定位元素（position不为static）设置z-index来实现我们想要的层叠关系。但是，随着css3的发展，现在z-index已经并非只有对定位元素才有效，flex盒子的子元素也可以设置z-index属性。而且网页中的绝大部分元素是非定位元素，影响层叠顺序的属性远不止z-index，我只能说，css没你想的那么简单哦😯</p>
+<h3 id="理解元素的层叠顺序"><a href="#理解元素的层叠顺序" class="headerlink" title="理解元素的层叠顺序"></a>理解元素的层叠顺序</h3><p>这里我们首先对开始祭出的图来做个补充说明</p>
+<ul>
+<li>位于最下面的background/border特指层叠上下文元素的边框和背景色。每一个层叠顺序规则仅适用于当前层叠上下文元素的小世界</li>
+<li>内联元素的层叠顺序要高于浮动和块级元素。一般来说，像底层的background/border是装饰属性，浮动元素和块级元素用作布局，而内联元素都是内容。所以，记住喽😊，<strong>网页中最重要的就是内容</strong></li>
+</ul>
+<h3 id="层叠黄金准则"><a href="#层叠黄金准则" class="headerlink" title="层叠黄金准则"></a>层叠黄金准则</h3><p>一般来说，当元素发生层叠的时候，其覆盖关系遵循下面两条准则：<br>（1）谁大谁在上：在同一层叠上下文领域，层叠水平大的覆盖小的那个（z-index大的在上面）<br>（2）后来居上：元素的层叠水平一致，层叠顺序相同的时候，DOM流中处于后面的元素会覆盖前面的元素</p>
+<h2 id="深入了解层叠上下文"><a href="#深入了解层叠上下文" class="headerlink" title="深入了解层叠上下文"></a>深入了解层叠上下文</h2><hr>
+<h3 id="层叠上下文的创建"><a href="#层叠上下文的创建" class="headerlink" title="层叠上下文的创建"></a>层叠上下文的创建</h3><p>层叠上下的创建概括来说可以有一下三种方式：</p>
+<ul>
+<li>页面根元素天生具有层叠上下文，称为根层叠上下文</li>
+<li>z-index值为数值的定位元素的传统“层叠上下文”，这个也是我们最熟悉的一种啦</li>
+<li>由css3属性引起的</li>
+</ul>
+<h4 id="定位元素与传统层叠上下文"><a href="#定位元素与传统层叠上下文" class="headerlink" title="定位元素与传统层叠上下文"></a>定位元素与传统层叠上下文</h4><p>对于position值为relative/absolute/fixe的，当其z-index值不是auto的时候，会创建层叠上下文。<br>先来看一下第一个例子：<br>HTML代码如下👇</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&apos;position:relative;z-index:auto;&apos;&gt;</span><br><span class="line">&lt;!-- 树 --&gt;</span><br><span class="line">&lt;img src=&apos;tree.jpeg&apos; style=&apos;position:absolute;z-index:2;&apos;/&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div style=&apos;position:relative;z-index:auto;&apos;&gt;</span><br><span class="line">&lt;!-- 马--&gt;</span><br><span class="line">&lt;img src=&apos;ma.jpg&apos; width=&apos;100&apos; style=&apos;position:absolute;z-index:1;&apos;/&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>结果如下图所示，效果符合预期。<br><img src="https://raw.githubusercontent.com/wq931030/albums/master/2019/layer2.png" alt=""><br>现在对父级简单调整一下，把z-index：auto改成层叠水平一样高的z-index：0，代码如下👇</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&apos;position:relative;z-index:0;&apos;&gt;</span><br><span class="line">&lt;!-- 树 --&gt;</span><br><span class="line">&lt;img src=&apos;tree.jpg&apos; style=&apos;position:absolute;z-index:2;&apos;/&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div style=&apos;position:relative;z-index:0;&apos;&gt;</span><br><span class="line">&lt;!-- 马--&gt;</span><br><span class="line">&lt;img src=&apos;ma.jpg&apos; style=&apos;position:absolute;z-index:1;&apos;/&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>结果如下图所示，覆盖关系反了过来(🐂👃)！！！<br><img src="https://raw.githubusercontent.com/wq931030/albums/master/2019/layer1.png" alt=""><br>为什么小小的改动，竟然会有这么大的差异呢？关键就在于z-indx：auto所在的div元素是一个<strong>普通定位元素</strong>，于是，里面的img的层叠比较不受父级影响，两者直接套用层叠准则，<strong>z-index大的在上面</strong>。<br>而当z-index变为数值，哪怕是0，也会立刻创造一个层叠上下文，所以此时img元素的层叠顺序比较就变成优先比较父级的顺序。由于两个父级z-index都是0，此时根据DOM文档流后面的元素覆盖前面的这个原则，就出现了上图的结果。<br>没想到简单的一个z-index属性，也能搞出这么多的花样，css世界水果然很深🏊‍♀️🏊‍♀️🏊‍♀️</p>
+<h4 id="css3与新时代的层叠上下文"><a href="#css3与新时代的层叠上下文" class="headerlink" title="css3与新时代的层叠上下文"></a>css3与新时代的层叠上下文</h4><p>当出现以下css3属性的时候，也会形成层叠上下文哦：<br>1、 元素为flex布局，同时z-index值不是auto<br>2、 元素的opacity值不是1<br>3、 元素的transform值不是none<br>4、 元素的filetr属性不是none<br>5、 元素mix-blend-mode值不是normal<br>6、 元素的isolation值不是isolate<br>7、 元素的will-change属性值为上面2-6的任意一个<br>8、 <strong>元素的-webkit-overflow-scrolling设为touch</strong>(当初做移动端项目就在这点上被坑到了😭)</p>
+<h2 id="z-index负值深入理解"><a href="#z-index负值深入理解" class="headerlink" title="z-index负值深入理解"></a>z-index负值深入理解</h2><hr>
+<p>是不是第一次知道z-index竟然可以支持负值？（反正我不是🤷‍♀️）z-index的具体规则又是怎么样的呢？<br>一般来说，z-index负值元素的层级是在层叠上下文上面、block元素的下面，也就是z-index虽然名为负数层级，但依然无法突破当前层叠上下文所控制的区域。<br>先看一个例子加深一下认识👇：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- HTML --&gt;</span><br><span class="line">&lt;h4&gt;.box非层叠上下文元素&lt;/h4&gt;</span><br><span class="line">&lt;div class=&apos;box&apos;&gt;</span><br><span class="line">  &lt;img src=&apos;1.jpg&apos;/&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;h4&gt;.box是层叠上下文元素&lt;/h4&gt;</span><br><span class="line">&lt;div class=&apos;box content&apos;&gt;</span><br><span class="line">  &lt;img src=&apos;1.jpg&apos;/&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- CSS --&gt;</span><br><span class="line">.box &#123;</span><br><span class="line">  background-color: blue;</span><br><span class="line">&#125;</span><br><span class="line">.box &gt; img &#123; </span><br><span class="line">  position: relative; </span><br><span class="line">  z-index: -1; </span><br><span class="line">  right: -50px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.context &#123;</span><br><span class="line">  transform: scale(1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实现的效果👇👇👇👇<br><img src="https://raw.githubusercontent.com/wq931030/albums/master/2019/layer3.png" alt=""><br>那么z-index负值在实际项目中又有上面用呢？具体作用如下：</p>
+<ul>
+<li><strong>可访问属性隐藏。</strong> z-index负值可以隐藏元素，只需要层叠上下文内的某一个父元素加个背景色就可以</li>
+<li><strong>定位在元素的后面。</strong> 我们可以先看一个模拟纸张效果的例子👇</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- HTML --&gt;</span><br><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">  &lt;div class=&apos;page&apos;&gt;</span><br><span class="line">    &lt;h4 class=&apos;title&apos;&gt;一些示例文字&lt;/h4&gt;</span><br><span class="line">    &lt;p&gt;&lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- Style --&gt;</span><br><span class="line">.container &#123;</span><br><span class="line">  background: #666;</span><br><span class="line">  position: relative;</span><br><span class="line">  z-index: 0;</span><br><span class="line">&#125;</span><br><span class="line">.page &#123;</span><br><span class="line">    width: 600px;</span><br><span class="line">    background-color: #f4f39e;</span><br><span class="line">    background: linear-gradient(to bottom, #f4f39e, #f5da41 60%, #fe6);</span><br><span class="line">    box-shadow: 0 2px 10px 1px rgba(0, 0, 0, .2);</span><br><span class="line">    text-shadow: 0 1px 0 #f6ef97;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">.page:before &#123;</span><br><span class="line">    transform: skew(-15deg) rotate(-5deg);</span><br><span class="line">    transform-origin: left bottom;</span><br><span class="line">    left: 0;</span><br><span class="line">&#125;</span><br><span class="line">.page:after &#123;</span><br><span class="line">    transform: skew(15deg) rotate(5deg);</span><br><span class="line">    transform-origin: right bottom;</span><br><span class="line">    right: 0;</span><br><span class="line">&#125;</span><br><span class="line">/* 边角卷边阴影 */</span><br><span class="line">.page:before, .page:after &#123;</span><br><span class="line">    width: 90%; height: 20%;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    box-shadow: 0 8px 16px rgba(0, 0, 0, .3);</span><br><span class="line">    position: absolute;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    z-index: -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>实现效果</strong>👇</p>
+<p><img src="https://raw.githubusercontent.com/wq931030/albums/master/2019/layer4.png" alt=""></p>
+<blockquote>
+<p><strong>解释一下</strong>：<br>.container灰色背景通过position:relative;z-index:0创建了层叠上下文，.page仅有position:relative而没有设置z-index,因此只能算z-index:auto程度的定位元素，于是，z-index：-1两个边角阴影就完美地藏在了层叠上下文（灰色背景）之上，普通定位元素（黄色纸张）之下，隐藏了丑陋的细节，展示了完美的边角阴影，实现了最终细腻的样式效果🎉🎉🎉</p>
+</blockquote>
+<h2 id="z-index“不犯二”准则"><a href="#z-index“不犯二”准则" class="headerlink" title="z-index“不犯二”准则"></a>z-index“不犯二”准则</h2><hr>
+<p>其准则内容如下：对于非浮动元素，避免设置z-index值，z-index值没有任何理由要超过2（瞬间想到项目里面z-index：9999😷😷😷）。至于原因，有以下几条：</p>
+<ul>
+<li>定位元素一旦设置了z-index，就从普通元素变成了层叠上下文，相互间的层叠顺序就发生了根本的变化，很容易出现设置了巨大的z-index值也无法覆盖其他元素的问题。</li>
+<li>避免z-index‘一山比一山高’的样式混乱问题。想想自己在项目开发过程中，有没有出现过这种情况：a同事对一个元素设置了z-index：99，结果这个值比b同事设置的弹框的z-index还要高，于是b把弹框的z-index设置为了9999，然后可怕的是如果弹框上面还要有出错提示效果….显然，最后项目的z-index层级管理就是一团糟。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wq931030.github.io/2019/12/05/css-stack-index/" data-id="ck3y4f0g0000d0qm972b9ezmi"
+         class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Css3/" rel="tag">Css3</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2019/11/26/leecode02/" class="article-nav-link">
+        <strong class="article-nav-caption">后一篇</strong>
+        <div class="article-nav-title">猜数字</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'a1f9a5010db180254cab',
+      clientSecret: 'ac9ed4a749485132958b79e6bef3795a12e52bef',
+      repo: 'wq931030.github.io',
+      owner: 'wq931030',
+      admin: ['wq931030'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: false,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
+
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2019 Never Wong</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="Never Wong"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">首页</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">归档</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">相册</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/categories">分类</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/tags">标签</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">关于</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+  <script src="/js/search.js"></script>
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

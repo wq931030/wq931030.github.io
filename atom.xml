@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wq931030.github.io/"/>
-  <updated>2019-11-26T11:09:28.223Z</updated>
+  <updated>2019-12-10T01:43:42.893Z</updated>
   <id>https://wq931030.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css世界的层叠规则</title>
+    <link href="https://wq931030.github.io/2019/12/05/css-stack-index/"/>
+    <id>https://wq931030.github.io/2019/12/05/css-stack-index/</id>
+    <published>2019-12-05T11:58:52.000Z</published>
+    <updated>2019-12-10T01:43:42.893Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;身为一个前端er，css一直是我们最为基本的技能，而css的中文翻译就是层叠样式表。那为什么css世界的规则是基于‘层叠上下文’？我们又该怎么理解元素的层叠顺序？对于z-index的负值又该怎么理解？接下来，我们就基于一张图来好好谈谈css的层叠规则。&lt;br&gt;废话不对说，先祭出图👇👇👇👇👇👇👇&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/wq931030/albums/master/2019/index.png&quot; alt=&quot;图一&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Css3" scheme="https://wq931030.github.io/tags/Css3/"/>
+    
+  </entry>
   
   <entry>
     <title>猜数字</title>
@@ -45,17 +64,11 @@
     <link href="https://wq931030.github.io/2019/11/22/css3-object-fit/"/>
     <id>https://wq931030.github.io/2019/11/22/css3-object-fit/</id>
     <published>2019-11-22T01:52:56.000Z</published>
-    <updated>2019-11-25T09:50:42.027Z</updated>
+    <updated>2019-11-26T11:26:00.464Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;最近小白在看&lt;a href=&quot;https://youzan.github.io/vant&quot; target=&quot;_blank&quot;
-        
-      
+      &lt;p&gt;最近小白在看&lt;a href=&quot;https://youzan.github.io/vant&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Vant&lt;/a&gt;的文档，它里面有个Image图片组件，可以实现多种填充模式（类似于background），于是一时好奇，查看了源码，结果发现vant是使用了一个Object-fit的属性❓❓❓一脸蒙蔽之后，立马google终于知道了Object-fit是个啥东东。&lt;/p&gt;
     
     </summary>
     
