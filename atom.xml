@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wq931030.github.io/"/>
-  <updated>2019-12-10T01:43:42.893Z</updated>
+  <updated>2019-12-29T04:07:32.799Z</updated>
   <id>https://wq931030.github.io/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>80%的前端都拎不清的Css选择器优先级</title>
+    <link href="https://wq931030.github.io/2019/12/29/css-selector/"/>
+    <id>https://wq931030.github.io/2019/12/29/css-selector/</id>
+    <published>2019-12-29T03:02:44.000Z</published>
+    <updated>2019-12-29T04:07:32.799Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;没错，我就是一个标题党来着的（😄😄😄😄😄😄😄）。&lt;br&gt;是个前端开发工程师，就知道Css选择器，但是这么多的选择器，我们真的搞得的清楚彼此之间的优先级吗？&lt;br&gt;先来个小题先考考一下大家哈，如果有大佬已经很清楚答案以及原理，那就可以忽略这篇文章，如果你还不太清楚的，希望这片文章可以让你更好的理解Css的选择器优先级～～&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Css3" scheme="https://wq931030.github.io/tags/Css3/"/>
+    
+  </entry>
+  
+  <entry>
     <title>css世界的层叠规则</title>
     <link href="https://wq931030.github.io/2019/12/05/css-stack-index/"/>
     <id>https://wq931030.github.io/2019/12/05/css-stack-index/</id>
     <published>2019-12-05T11:58:52.000Z</published>
-    <updated>2019-12-10T01:43:42.893Z</updated>
+    <updated>2019-12-10T02:24:55.756Z</updated>
     
     <summary type="html">
     
