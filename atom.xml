@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wq931030.github.io/"/>
-  <updated>2019-12-29T04:07:32.799Z</updated>
+  <updated>2020-01-22T03:11:48.976Z</updated>
   <id>https://wq931030.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>按位操作符</title>
+    <link href="https://wq931030.github.io/2020/01/21/bitwise-operator/"/>
+    <id>https://wq931030.github.io/2020/01/21/bitwise-operator/</id>
+    <published>2020-01-21T07:25:38.000Z</published>
+    <updated>2020-01-22T03:11:48.976Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;按位操作符&lt;/strong&gt;将其操作数当作32位的比特序列（由0和1组成，也就是二进制），但是返回值依然是标准的javascript数值。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>80%的前端都拎不清的Css选择器优先级</title>

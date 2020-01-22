@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>按位操作符</title>
+    <url>/2020/01/21/bitwise-operator/</url>
+    <content><![CDATA[<p><strong>按位操作符</strong>将其操作数当作32位的比特序列（由0和1组成，也就是二进制），但是返回值依然是标准的javascript数值。</p>
+<a id="more"></a>
+<p>下表总结了JS中的按位操作符：</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>用法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>按位与（AND）</td>
+<td>a &amp; b</td>
+<td>1、对于每一个比特位，只有两个操作数相应的比特位都是1时，结果才是1，否则为0  2、将任一数值 x 与 0 执行按位与操作，其结果都为 0。将任一数值 x 与 -1 执行按位与操作，其结果都为 x。</td>
+</tr>
+<tr>
+<td>按位或（OR）</td>
+<td>a / b</td>
+<td>1、对于每一个比特位，当两个操作数相应的位至少有一个1时，结果为1，否则为0。 2、将任一数值 x 与 0 进行按位或操作，其结果都是 x。将任一数值 x 与 -1 进行按位或操作，其结果都为 -1</td>
+</tr>
+<tr>
+<td>按位异或（XOR）</td>
+<td>a ^ b</td>
+<td>对于每一个比特位，当两个操作数相应的比特位有且只有一个1时，结果为1，否则为0。</td>
+</tr>
+<tr>
+<td>按位非（NOT）</td>
+<td>～a</td>
+<td>反转操作数的比特位，即0变成1，1变成0</td>
+</tr>
+</tbody></table>
+<h2 id="运用按位操作符，我们可以很容易的解决一些问题。"><a href="#运用按位操作符，我们可以很容易的解决一些问题。" class="headerlink" title="运用按位操作符，我们可以很容易的解决一些问题。"></a>运用按位操作符，我们可以很容易的解决一些问题。</h2><p>举个例子：<br>leeCode上有一道数组问题</p>
+<blockquote>
+<p><strong>只出现一次的数字</strong></p>
+</blockquote>
+<p>描述：给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。<br>说明： 你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？<br><strong>示例1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：[2,2,1]</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>解题思路:</strong></p>
+</blockquote>
+<p>这道题目，我们可以用按位异或来解决：两个相同的数异或的结果是0，不相同时异或结果为1.0和其他数异或就是这个数本身。-1与X异或，其结果为-x。</p>
+<blockquote>
+<p><strong>题解</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> singleNumber = <span class="function">(<span class="params">nums = []</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">    nums[<span class="number">0</span>] = nums[<span class="number">0</span>] ^ nums[i]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> nums[<span class="number">0</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>80%的前端都拎不清的Css选择器优先级</title>
     <url>/2019/12/29/css-selector/</url>
     <content><![CDATA[<p>没错，我就是一个标题党来着的（😄😄😄😄😄😄😄）。<br>是个前端开发工程师，就知道Css选择器，但是这么多的选择器，我们真的搞得的清楚彼此之间的优先级吗？<br>先来个小题先考考一下大家哈，如果有大佬已经很清楚答案以及原理，那就可以忽略这篇文章，如果你还不太清楚的，希望这片文章可以让你更好的理解Css的选择器优先级～～</p>
