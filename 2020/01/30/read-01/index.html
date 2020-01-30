@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    按位操作符 |
+    人间失格 |
     
     Never Wong</title>
   
@@ -26,7 +26,7 @@
 <body>
 <main class="content">
   <section class="outer">
-  <article id="post-bitwise-operator" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-read-01" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
   
   <div class="article-inner">
     
@@ -34,7 +34,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      按位操作符
+      人间失格
     </h1>
   
   
@@ -47,17 +47,19 @@
 
     
       <div class="article-meta">
-        <a href="/2020/01/21/bitwise-operator/" class="article-date">
-  <time datetime="2020-01-21T07:25:38.000Z" itemprop="datePublished">2020-01-21</time>
+        <a href="/2020/01/30/read-01/" class="article-date">
+  <time datetime="2020-01-30T10:17:41.000Z" itemprop="datePublished">2020-01-30</time>
 </a>
         
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/2020%E4%B9%A6%E5%8D%95/">2020书单</a>
+  </div>
+
       </div>
     
 
     
       
-    <div class="tocbot"></div>
-
 
 
 
@@ -68,60 +70,38 @@
       
 
       
+  <div class="article-gallery">
+    <div class="article-gallery-photos">
+      
+        
+          <img src="https://raw.githubusercontent.com/wq931030/albums/master/2019/20170503184037v2sUNySZJk7wp59W(1).png" itemprop="image">
+        
+      
+    </div>
+  </div>
+
 
       
-        <p><strong>按位操作符</strong>将其操作数当作32位的比特序列（由0和1组成，也就是二进制），但是返回值依然是标准的javascript数值。</p>
+        <blockquote>
+<p>“生而为人，我很抱歉”   ——太宰治</p>
+</blockquote>
 <a id="more"></a>
-<p>下表总结了JS中的按位操作符：</p>
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>用法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>按位与（AND）</td>
-<td>a &amp; b</td>
-<td>1、对于每一个比特位，只有两个操作数相应的比特位都是1时，结果才是1，否则为0  2、将任一数值 x 与 0 执行按位与操作，其结果都为 0。将任一数值 x 与 -1 执行按位与操作，其结果都为 x。</td>
-</tr>
-<tr>
-<td>按位或（OR）</td>
-<td>a / b</td>
-<td>1、对于每一个比特位，当两个操作数相应的位至少有一个1时，结果为1，否则为0。 2、将任一数值 x 与 0 进行按位或操作，其结果都是 x。将任一数值 x 与 -1 进行按位或操作，其结果都为 -1</td>
-</tr>
-<tr>
-<td>按位异或（XOR）</td>
-<td>a ^ b</td>
-<td>对于每一个比特位，当两个操作数相应的比特位有且只有一个1时，结果为1，否则为0。</td>
-</tr>
-<tr>
-<td>按位非（NOT）</td>
-<td>～a</td>
-<td>反转操作数的比特位，即0变成1，1变成0</td>
-</tr>
-</tbody></table>
-<h2 id="运用按位操作符，我们可以很容易的解决一些问题。"><a href="#运用按位操作符，我们可以很容易的解决一些问题。" class="headerlink" title="运用按位操作符，我们可以很容易的解决一些问题。"></a>运用按位操作符，我们可以很容易的解决一些问题。</h2><p>举个例子：<br>leeCode上有一道数组问题</p>
-<blockquote>
-<p><strong>只出现一次的数字</strong></p>
-</blockquote>
-<p>描述：给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。<br>说明： 你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？<br><strong>示例1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[2,2,1]</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>解题思路:</strong></p>
-</blockquote>
-<p>这道题目，我们可以用按位异或来解决：两个相同的数异或的结果是0，不相同时异或结果为1.0和其他数异或就是这个数本身。-1与X异或，其结果为-x。</p>
-<blockquote>
-<p><strong>题解</strong></p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> singleNumber = <span class="function">(<span class="params">nums = []</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">    nums[<span class="number">0</span>] = nums[<span class="number">0</span>] ^ nums[i]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> nums[<span class="number">0</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;第一次看到这句话，是在电影《被嫌弃的松子的一生》。<br>&nbsp;&nbsp;&nbsp;&nbsp;那个时候，看到这句话感触很深，所以就网上搜索了这句话。然后，就发现日本作家<a href="https://baike.baidu.com/item/%E5%A4%AA%E5%AE%B0%E6%B2%BB/5426741" target="_blank" rel="noopener">太宰治</a>写的这本<a href="https://book.douban.com/subject/4011670/" target="_blank" rel="noopener">《人间失格》</a>。把这本书放进想读书单也已经很久了，趁着去年双十二当当打折，最终还是买了一本。然后趁着这个春节假期，断断续续花了三天的时间，读完了这本书。<br>&nbsp;&nbsp;&nbsp;&nbsp;读完这本书最大的一个感受就是心疼男主-叶藏。因为不知道怎么表达自己想要的，不会拒绝别人，注定了叶藏悲惨的一生。<br>&nbsp;&nbsp;&nbsp;&nbsp;为了掩藏自己的真实想法，努力的在别人面前充当小丑的角色，坚硬的外壳下包裹的是一颗一触即碎的心。和松子一样，从小也是一个敏感的孩子，为了讨好别人，一直逼自己做自己不喜欢的事，以为可以得到幸福，但是到头来，却成了人人厌恶的“废人”<br>&nbsp;&nbsp;&nbsp;&nbsp;无聊的没有意义的日子日复一日, 所以：<strong>如今的我，谈不上幸福，也谈不上不幸。</strong></p>
+<p style='text-align:center;color:gray;font-weight:bold;'> “相同之事也反复发生在明日<br>
+只需遵从与昨天同样的惯例<br>
+只要避免过度的狂喜<br>
+自然不会有悲哀造次<br>
+蟾蜍总是迂回前进<br>
+躲开阻挡前方的路石”</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wq931030.github.io/2020/01/21/bitwise-operator/" data-id="ck60l4soc0001scm9av6kebk6"
+      <a data-url="https://wq931030.github.io/2020/01/30/read-01/" data-id="ck60l4soq0004scm9faeyaqjq"
          class="article-share-link">分享</a>
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reading/" rel="tag">Reading</a></li></ul>
+
     </footer>
 
   </div>
@@ -130,19 +110,10 @@
     
   <nav class="article-nav">
     
-      <a href="/2020/01/30/read-01/" class="article-nav-link">
-        <strong class="article-nav-caption">前一篇</strong>
-        <div class="article-nav-title">
-          
-            人间失格
-          
-        </div>
-      </a>
     
-    
-      <a href="/2019/12/29/css-selector/" class="article-nav-link">
+      <a href="/2020/01/21/bitwise-operator/" class="article-nav-link">
         <strong class="article-nav-caption">后一篇</strong>
-        <div class="article-nav-title">80%的前端都拎不清的Css选择器优先级</div>
+        <div class="article-nav-title">按位操作符</div>
       </a>
     
   </nav>

@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>人间失格</title>
+    <url>/2020/01/30/read-01/</url>
+    <content><![CDATA[<blockquote>
+<p>“生而为人，我很抱歉”   ——太宰治</p>
+</blockquote>
+<a id="more"></a>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;第一次看到这句话，是在电影《被嫌弃的松子的一生》。<br>&nbsp;&nbsp;&nbsp;&nbsp;那个时候，看到这句话感触很深，所以就网上搜索了这句话。然后，就发现日本作家<a href="https://baike.baidu.com/item/%E5%A4%AA%E5%AE%B0%E6%B2%BB/5426741" target="_blank" rel="noopener">太宰治</a>写的这本<a href="https://book.douban.com/subject/4011670/" target="_blank" rel="noopener">《人间失格》</a>。把这本书放进想读书单也已经很久了，趁着去年双十二当当打折，最终还是买了一本。然后趁着这个春节假期，断断续续花了三天的时间，读完了这本书。<br>&nbsp;&nbsp;&nbsp;&nbsp;读完这本书最大的一个感受就是心疼男主-叶藏。因为不知道怎么表达自己想要的，不会拒绝别人，注定了叶藏悲惨的一生。<br>&nbsp;&nbsp;&nbsp;&nbsp;为了掩藏自己的真实想法，努力的在别人面前充当小丑的角色，坚硬的外壳下包裹的是一颗一触即碎的心。和松子一样，从小也是一个敏感的孩子，为了讨好别人，一直逼自己做自己不喜欢的事，以为可以得到幸福，但是到头来，却成了人人厌恶的“废人”<br>&nbsp;&nbsp;&nbsp;&nbsp;无聊的没有意义的日子日复一日, 所以：<strong>如今的我，谈不上幸福，也谈不上不幸。</strong></p>
+<p style='text-align:center;color:gray;font-weight:bold;'> “相同之事也反复发生在明日<br>
+只需遵从与昨天同样的惯例<br>
+只要避免过度的狂喜<br>
+自然不会有悲哀造次<br>
+蟾蜍总是迂回前进<br>
+躲开阻挡前方的路石”</p>
+]]></content>
+      <categories>
+        <category>2020书单</category>
+      </categories>
+      <tags>
+        <tag>Reading</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>按位操作符</title>
     <url>/2020/01/21/bitwise-operator/</url>
     <content><![CDATA[<p><strong>按位操作符</strong>将其操作数当作32位的比特序列（由0和1组成，也就是二进制），但是返回值依然是标准的javascript数值。</p>
