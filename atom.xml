@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wq931030.github.io/"/>
-  <updated>2020-01-30T10:17:41.101Z</updated>
+  <updated>2020-02-27T09:23:35.644Z</updated>
   <id>https://wq931030.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS Grid Layout</title>
+    <link href="https://wq931030.github.io/2020/02/27/css-grid/"/>
+    <id>https://wq931030.github.io/2020/02/27/css-grid/</id>
+    <published>2020-02-27T09:23:35.000Z</published>
+    <updated>2020-02-27T09:23:35.644Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;工作中用到的最多的布局就是flex布局了，对于grid的了解不是很多。所以，今天打算好好地深入了解一下这个新一代的布局神器。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="CSS" scheme="https://wq931030.github.io/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>人间失格</title>
