@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>TypeScript学习笔记-上</title>
+    <url>/2020/03/09/typescript1-0/</url>
+    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/wq931030/albums/master/2019/2018-12-25-ts.jpeg" alt=""><br>2020了，typescript可以说是现在前端界的趋势所在。各大厂，各个主流框架也都开始全面拥抱TypeScript,包括Q2季度将要发布的vue3.0。所以，为了提升自己（顺应潮流，能看得懂源码😭），我们就撸起袖子来好好学习一下TypeScript吧。</p>
+<a id="more"></a>
+<p>鉴于TypeScript知识点比较多，所以，打算分三波来学习。<strong>Let’s Go!</strong></p>
+<blockquote>
+<p>这篇文章主要介绍typescript的一些基本类型，然后看一下ts是怎么做类型推导的，对TypeScript有个大概的了解</p>
+</blockquote>
+<hr>
+<h3 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g typescript</span><br></pre></td></tr></table></figure>
+<p>编译ts文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tsc demo.ts</span><br></pre></td></tr></table></figure>
+<p>如果想要编译并执行，可以下载ts-node</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g ts-node</span><br><span class="line">ts-node demo.ts</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="一、基础类型"><a href="#一、基础类型" class="headerlink" title="一、基础类型"></a>一、基础类型</h3><h4 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let isDone: boolean = false</span><br></pre></td></tr></table></figure>
+<h4 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h4><blockquote>
+<p>ts里面所有的数字都是浮点数。这些浮点数的类型都是number。支持包括十进制，十六进制，二进制和八进制。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let decLiteral: number = 6</span><br><span class="line">let hexLiteral: number = 0xf00d</span><br><span class="line">let binaryLiteral: number = 0n1010</span><br><span class="line">let octalLiteral: number = 0o744</span><br></pre></td></tr></table></figure>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let name: string = &apos;Tom&apos;</span><br><span class="line">let sentence: string = `My name is $&#123;name&#125;`</span><br></pre></td></tr></table></figure>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><p>ts中有两种定义数组的方法。第一种，在元素类型后面接上[],表示由此类型元素组成的一个数组;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let list: number[] = [1, 2, 3]</span><br></pre></td></tr></table></figure>
+<p>第二种，使用数组泛型，Array&lt;元素类型&gt;;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let list: Array&lt;string&gt; = [&apos;f&apos;, &apos;b&apos;, &apos;m&apos;]</span><br></pre></td></tr></table></figure>
+<h4 id="元祖-Tuple"><a href="#元祖-Tuple" class="headerlink" title="元祖 Tuple"></a>元祖 Tuple</h4><p>元祖类型允许表示一个已知数量和类型的数组，各元素类型不必相同。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let a: [string, number] = [&apos;d3&apos;, 3]</span><br></pre></td></tr></table></figure>
+<p>访问一个已知索引，可以得到正确的类型</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">console.log(a[0].substr(1)) // 3</span><br><span class="line">console.log(a[1].substr(1)) // 类型“number”上不存在属性“substr”。</span><br></pre></td></tr></table></figure>
+<h4 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h4><p>enum是对JS标准数据类型的补充，可以使用枚举类型为一组数值赋予名字。ts支持数字和基于字符串的枚举。</p>
+<h5 id="数字枚举：-默认情况，从0开始为元素编号。也可以手动指定"><a href="#数字枚举：-默认情况，从0开始为元素编号。也可以手动指定" class="headerlink" title="数字枚举： 默认情况，从0开始为元素编号。也可以手动指定"></a><strong>数字枚举：</strong> 默认情况，从0开始为元素编号。也可以手动指定</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">enum Res &#123; No = 0, Yes = 1 &#125;</span><br><span class="line">console.log(&apos;c: &apos;, Res.Yes)</span><br></pre></td></tr></table></figure>
+<h5 id="反向映射"><a href="#反向映射" class="headerlink" title="反向映射"></a>反向映射</h5><p>数字枚举成员具有反向映射，可以从枚举值到枚举名字</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">enum Enum &#123;</span><br><span class="line">  A</span><br><span class="line">&#125;</span><br><span class="line">let a = Enum.A</span><br><span class="line">let nameOfA = Enum[a] // A</span><br></pre></td></tr></table></figure>
+<h5 id="字符串枚举：在一个字符串枚举里，每个成员都必须用字符串字面，或另外一个字符串枚举成员进行初始化。"><a href="#字符串枚举：在一个字符串枚举里，每个成员都必须用字符串字面，或另外一个字符串枚举成员进行初始化。" class="headerlink" title="字符串枚举：在一个字符串枚举里，每个成员都必须用字符串字面，或另外一个字符串枚举成员进行初始化。"></a><strong>字符串枚举：</strong>在一个字符串枚举里，每个成员都必须用字符串字面，或另外一个字符串枚举成员进行初始化。</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">enum Direction &#123;</span><br><span class="line">  Up = &apos;UP&apos;,</span><br><span class="line">  Down = &apos;DOWN&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="异构枚举：混合字符串和数字的枚举"><a href="#异构枚举：混合字符串和数字的枚举" class="headerlink" title="异构枚举：混合字符串和数字的枚举"></a><strong>异构枚举：</strong>混合字符串和数字的枚举</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">enum BooleanLikeHeterogeneousEnum &#123;</span><br><span class="line">    No = 0,</span><br><span class="line">    Yes = &quot;YES&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="联合枚举与枚举成员的类型"><a href="#联合枚举与枚举成员的类型" class="headerlink" title="联合枚举与枚举成员的类型"></a><strong>联合枚举与枚举成员的类型</strong></h5><h4 id="Any"><a href="#Any" class="headerlink" title="Any"></a>Any</h4><p>用于为在编程阶段还不清楚的变量指定类型</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let notSure: any = 4</span><br><span class="line">notSure = &apos;maybe a string instead&apos;</span><br><span class="line">notSure = false</span><br><span class="line">let list: any[] = [1, &apos;ff&apos;, false]</span><br></pre></td></tr></table></figure>
+<h4 id="Void"><a href="#Void" class="headerlink" title="Void"></a>Void</h4><p>表示美誉任何类型。当一个函数没有返回值时，可以设置返回值类型为void</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function test() : void &#123;</span><br><span class="line">  console.log(&apos;test&apos;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h4><p>当确定知道一个值的类型时，可以使用类型断言。类似于类型转换<br>一般有两种方式实现。<br>第一种，“尖括号”语法”</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let value: any = &apos;string&apos;</span><br><span class="line">let strLength: number = (&lt;string&gt;value).length</span><br></pre></td></tr></table></figure>
+<p>第二种，”as”语法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">let value: any = &apos;string&apos;</span><br><span class="line">let strLength: number = (value as string).length</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="二、接口"><a href="#二、接口" class="headerlink" title="二、接口"></a>二、接口</h3><p>ts的核心原则之一就是对值所具有的结构进行类型检查，而接口的作用就是为这些类型命名和为你的代码或第三方代码定义契约。（鸭式辨型发）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface LabeledValue &#123;</span><br><span class="line">  label: string;</span><br><span class="line">&#125;</span><br><span class="line">function printLabel(labelObj: LabeledValue) &#123;</span><br><span class="line">  console.log(labelObj.label)</span><br><span class="line">&#125;</span><br><span class="line">let myObj = &#123;size: 10, label: &apos;size 10&apos;&#125;</span><br><span class="line">printLabel(myObj)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可选属性</p>
+</blockquote>
+<p>接口里的属性不全是必需的，可以使用“option bags”模式()</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface LabeledValue &#123;</span><br><span class="line">  label: string;</span><br><span class="line">  size?: string</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>只读属性</p>
+</blockquote>
+<p>在属性名前用readonly来指定只读属性　</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface LabeledValue &#123;</span><br><span class="line">  readonly label: string;</span><br><span class="line">  size?: string;</span><br><span class="line">&#125;</span><br><span class="line">let l: LabelValue = &#123; label: &apos;color&apos; &#125;</span><br><span class="line">l.label = &apos;dimension&apos; // error</span><br></pre></td></tr></table></figure>
+<h4 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h4><p>接口不但可以描述普通对象，也可以描述函数类型。使用时，需要给接口定义一个调用签名。类似于一个只有参数列表和返回值类型的函数定义。参数列表里的每个参数都需要名字和类型。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface someFunc &#123; </span><br><span class="line">  (source: string, subString: string): boolean</span><br><span class="line">&#125;</span><br><span class="line">let myFunc: someFunc</span><br><span class="line">myFunc = function(src:string, sub:string) &#123;</span><br><span class="line">  let result = src.search(sub);</span><br><span class="line">  return result &gt; -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="可索引的类型"><a href="#可索引的类型" class="headerlink" title="可索引的类型"></a>可索引的类型</h4><p>可索引类型具有一个<strong>索引签名</strong>,它描述了对象索引的类型，还有相应的索引返回值类型。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface StringArray &#123;</span><br><span class="line">  [index: number]: string</span><br><span class="line">&#125;</span><br><span class="line">let myArray: StringArray</span><br><span class="line">myArray = [&apos;Bob&apos;, &apos;Tom&apos;]</span><br><span class="line">let myStr: string = myArray[0] // Bob</span><br></pre></td></tr></table></figure>
+<p>ts支持两种索引签名：字符串和数字。可以同时使用两种类型的索引，但是数字索引的返回值必须是字符串索引返回值类型的自类型。因为，当使用<strong>number</strong>来索引是，js会将它转化为string然后再去索引对象。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Animal &#123;</span><br><span class="line">    name: string;</span><br><span class="line">&#125;</span><br><span class="line">class Dog extends Animal &#123;</span><br><span class="line">    breed: string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 错误：使用数值型的字符串索引，有时会得到完全不同的Animal!</span><br><span class="line">interface NotOkay &#123;</span><br><span class="line">    [x: number]: Animal;</span><br><span class="line">    [x: string]: Dog;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="类类型"><a href="#类类型" class="headerlink" title="类类型"></a>类类型</h4><p>与java里接口的基本作用一样，ts可以用来明确的墙纸一个类去符合某种契约。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface ClockConstructor &#123;</span><br><span class="line">  curTime: Date;</span><br><span class="line">  setTime(d: Date);</span><br><span class="line">&#125;</span><br><span class="line">class Clock implements ClockConstructor &#123;</span><br><span class="line">  curTime: Date;</span><br><span class="line">  setTime(d: Date) &#123;</span><br><span class="line">    this.ctrTime = d</span><br><span class="line">  &#125;</span><br><span class="line">  constructor(h:number, m:number) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以在接口中描述一个方法，然后在类里面实现它</p>
+<h4 id="继承接口"><a href="#继承接口" class="headerlink" title="继承接口"></a>继承接口</h4><p>和类一样，接口也可以相互继承。这样，我们就能够从一个接口里复制成员到另一个接口里，可以灵活地将接口分割到可重用的模块里</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface shape &#123;</span><br><span class="line">  color: string;</span><br><span class="line">&#125;</span><br><span class="line">interface Square extends Shape &#123;</span><br><span class="line">  sideLength: number;</span><br><span class="line">&#125;</span><br><span class="line">let square = &lt;Square&gt;&#123;&#125;</span><br><span class="line">square.color = &quot;blue&quot;</span><br><span class="line">square.sideLength = 10</span><br></pre></td></tr></table></figure>
+<p><strong>下一章，我们继续来深入学习类，函数，范型这些知识（都涉及到继承相关的知识）。其实ts的这些内容和java很像，如果之前有了解java相关的内容，理解起来会比较容易！</strong></p>
+]]></content>
+      <tags>
+        <tag>Typescript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《菊与刀》</title>
     <url>/2020/03/06/read-02/</url>
     <content><![CDATA[<p><img src="https://58generalclass.files.wordpress.com/2017/06/640.jpg" alt=""></p>

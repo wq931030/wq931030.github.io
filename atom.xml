@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wq931030.github.io/"/>
-  <updated>2020-03-06T11:20:24.480Z</updated>
+  <updated>2020-03-12T01:59:16.881Z</updated>
   <id>https://wq931030.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TypeScript学习笔记-上</title>
+    <link href="https://wq931030.github.io/2020/03/09/typescript1-0/"/>
+    <id>https://wq931030.github.io/2020/03/09/typescript1-0/</id>
+    <published>2020-03-09T09:31:37.848Z</published>
+    <updated>2020-03-12T01:59:16.881Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/wq931030/albums/master/2019/2018-12-25-ts.jpeg&quot; alt=&quot;&quot;&gt;&lt;br&gt;2020了，typescript可以说是现在前端界的趋势所在。各大厂，各个主流框架也都开始全面拥抱TypeScript,包括Q2季度将要发布的vue3.0。所以，为了提升自己（顺应潮流，能看得懂源码😭），我们就撸起袖子来好好学习一下TypeScript吧。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Typescript" scheme="https://wq931030.github.io/tags/Typescript/"/>
+    
+  </entry>
   
   <entry>
     <title>《菊与刀》</title>
