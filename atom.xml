@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wq931030.github.io/"/>
-  <updated>2020-03-22T07:09:52.014Z</updated>
+  <updated>2020-03-22T08:16:28.643Z</updated>
   <id>https://wq931030.github.io/</id>
   
   <author>
@@ -17,22 +17,15 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>http、https、http2.0</title>
+    <title>HTTP、HTTPS、HTTP/2</title>
     <link href="https://wq931030.github.io/2020/03/22/http/"/>
     <id>https://wq931030.github.io/2020/03/22/http/</id>
     <published>2020-03-22T05:45:43.000Z</published>
-    <updated>2020-03-22T07:09:52.014Z</updated>
+    <updated>2020-03-22T08:16:28.643Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;最近项目完成了http到https的升级，期间还发生了一些小事故😂😂😂，正好最近在复习《图解HTTP》，所以决定写篇文章，梳理一下http、https的区别，以及对http2.0和即将到来的http3.0的介绍。&lt;/p&gt;
-&lt;h3 id=&quot;Http&quot;&gt;&lt;a
-        
-      
+      &lt;p&gt;&lt;img src=&quot;https://hsutimes.club/usr/uploads/2018/09/3819489413.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;最近项目完成了http到https的升级，期间还发生了一些小事故😂😂😂，正好最近在复习&lt;a href=&quot;https://kingyinliang.github.io/PDF/%E5%9B%BE%E8%A7%A3HTTP+%E5%BD%A9%E8%89%B2%E7%89%88.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《图解HTTP》&lt;/a&gt;，所以决定写篇文章，梳理一下http、https的区别，以及对http2.0和即将到来的http3.0的介绍。&lt;/p&gt;
     
     </summary>
     
