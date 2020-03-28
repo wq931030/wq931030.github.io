@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wq931030.github.io/"/>
-  <updated>2020-03-22T08:51:32.427Z</updated>
+  <updated>2020-03-28T06:13:52.920Z</updated>
   <id>https://wq931030.github.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>黑天鹅 And 灰犀牛</title>
+    <link href="https://wq931030.github.io/2020/03/28/blackSwan/"/>
+    <id>https://wq931030.github.io/2020/03/28/blackSwan/</id>
+    <published>2020-03-28T05:13:16.000Z</published>
+    <updated>2020-03-28T06:13:52.920Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/wq931030/albums/master/2019/th.jpeg&quot; alt=&quot;&quot;&gt;&lt;br&gt;在过去的几个月时间里，“黑天鹅”这个词真的是频频出现在大众的视野里，“新冠疫情”，”美股熔断“，”印度第四大银行濒临破产“，所以，才想简单写篇文章，介绍一下到底什么是“黑天鹅”，“灰犀牛”又是怎么一回事。历史上比较重大的，印象深刻的“黑天鹅”事件。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>HTTP、HTTPS、HTTP/2</title>
